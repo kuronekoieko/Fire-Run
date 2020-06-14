@@ -22,7 +22,7 @@ public class HumanController : MonoBehaviour
     PullController pullController;
     [NonSerialized] public bool isTop;
     HumanState state;
-
+    public Rigidbody GetRigidbody => rb;
     void Awake()
     {
         rb = GetComponent<Rigidbody>();

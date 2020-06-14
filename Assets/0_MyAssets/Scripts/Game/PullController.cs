@@ -27,6 +27,18 @@ public class PullController : MonoBehaviour
 
     void FixedUpdate()
     {
+        PutOn();
+    }
+
+    void PutOn()
+    {
+        if (follower == null) { return; }
+        follower.transform.position = transform.position + Vector3.up * 2;
+        follower.GetRigidbody.isKinematic = true;
+    }
+
+    void Pull()
+    {
         //ここでnullチェックしないと人が左右にずれる
         if (follower == null) { return; }
         //if (positions[positions.Count - 1] == transform.position) { return; }
