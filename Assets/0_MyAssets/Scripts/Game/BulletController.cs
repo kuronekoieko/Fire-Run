@@ -14,14 +14,21 @@ public class BulletController : MonoBehaviour
     {
         this.humanTfm = humanTfm;
         transform.position = humanTfm.position + offset;
-        // gameObject.SetActive(false);
+        gameObject.SetActive(false);
         rb = GetComponent<Rigidbody>();
     }
 
     void FixedUpdate()
     {
         rb.velocity = Vector3.forward * speed;
-        ShootTimer();
+        //ShootTimer();
+    }
+
+
+    public void Shoot()
+    {
+        gameObject.SetActive(true);
+        transform.position = humanTfm.position + offset;
     }
 
     void ShootTimer()

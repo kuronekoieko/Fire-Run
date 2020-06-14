@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6893115860970990136}
   - component: {fileID: 114744726175116398}
   - component: {fileID: 114917621173652050}
+  - component: {fileID: -1511663924985417539}
   m_Layer: 0
   m_Name: Human
   m_TagString: Untagged
@@ -59,8 +60,6 @@ MonoBehaviour:
   splatPS: {fileID: 2180227712712657786}
   addPS: {fileID: 2071197298531755427}
   animator: {fileID: 6256293625470046767}
-  bulletPrefab: {fileID: 8009197148519131076, guid: 93a1cf0d33f9246c4a8d2f3716c6cf33,
-    type: 3}
 --- !u!54 &1347312927588738292
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -116,6 +115,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   downForce: 13
+--- !u!114 &-1511663924985417539
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2419231782953128040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78ba9b98ecde9448a878ecdc941301f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 8009197148519131076, guid: 93a1cf0d33f9246c4a8d2f3716c6cf33,
+    type: 3}
 --- !u!1001 &2053852042782434910
 PrefabInstance:
   m_ObjectHideFlags: 0
