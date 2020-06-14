@@ -15,14 +15,11 @@ public class BulletManager : MonoBehaviour
         for (int i = 0; i < 10; i++)
         {
             bulletControllers.Add(Instantiate(bulletPrefab, Vector3.zero, Quaternion.identity));
+            bulletControllers[i].OnInstantiate(transform);
         }
     }
     void Start()
     {
-        for (int i = 0; i < bulletControllers.Count; i++)
-        {
-            bulletControllers[i].OnStart(transform);
-        }
         timer = shootIntervalSec;
     }
 
@@ -41,7 +38,7 @@ public class BulletManager : MonoBehaviour
         if (bullet == null)
         {
             bullet = Instantiate(bulletPrefab, Vector3.zero, Quaternion.identity);
-            bullet.OnStart(transform);
+            bullet.OnInstantiate(transform);
             bulletControllers.Add(bullet);
         }
         bullet.Shoot();

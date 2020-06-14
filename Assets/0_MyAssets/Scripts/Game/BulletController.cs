@@ -10,7 +10,7 @@ public class BulletController : MonoBehaviour
     Transform humanTfm;
     float timer;
     float shootIntervalSec = 1;
-    public void OnStart(Transform humanTfm)
+    public void OnInstantiate(Transform humanTfm)
     {
         this.humanTfm = humanTfm;
         transform.position = humanTfm.position + offset;
