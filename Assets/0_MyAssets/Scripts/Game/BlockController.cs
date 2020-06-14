@@ -33,9 +33,8 @@ public class BlockController : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        var human = other.gameObject.GetComponent<HumanController>();
-        if (human == null) { return; }
-        if (!human.isTop) { return; }
+        var bullet = other.gameObject.GetComponent<BulletController>();
+        if (bullet == null) { return; }
         hp--;
         if (hp == 0)
         {

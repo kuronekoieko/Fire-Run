@@ -43,7 +43,6 @@ public class BulletManager : MonoBehaviour
             bullet = Instantiate(bulletPrefab, Vector3.zero, Quaternion.identity);
             bullet.OnStart(transform);
             bulletControllers.Add(bullet);
-            Debug.Log("aaaaaaaaaaaaaaa");
         }
         bullet.Shoot();
     }
