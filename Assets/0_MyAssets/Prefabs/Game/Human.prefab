@@ -59,6 +59,8 @@ MonoBehaviour:
   splatPS: {fileID: 2180227712712657786}
   addPS: {fileID: 2071197298531755427}
   animator: {fileID: 6256293625470046767}
+  bulletPrefab: {fileID: 8009197148519131076, guid: 93a1cf0d33f9246c4a8d2f3716c6cf33,
+    type: 3}
 --- !u!54 &1347312927588738292
 Rigidbody:
   m_ObjectHideFlags: 0

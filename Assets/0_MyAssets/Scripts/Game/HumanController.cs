@@ -17,11 +17,13 @@ public class HumanController : MonoBehaviour
     [SerializeField] ParticleSystem splatPS;
     [SerializeField] ParticleSystem addPS;
     [SerializeField] Animator animator;
+    [SerializeField] BulletController bulletPrefab;
     Vector3 vel;
     Collider col;
     PullController pullController;
     [NonSerialized] public bool isTop;
     HumanState state;
+    BulletController bulletController;
 
     void Awake()
     {
@@ -29,6 +31,8 @@ public class HumanController : MonoBehaviour
         col = GetComponent<Collider>();
         pullController = GetComponent<PullController>();
         state = HumanState.Idle;
+        bulletController = Instantiate(bulletPrefab, Vector3.zero, Quaternion.identity);
+        bulletController.OnStart(transform);
     }
 
     public void OnInstantiate()

@@ -57,7 +57,7 @@ public class HumansManager : MonoBehaviour
         if (Input.GetMouseButtonUp(0))
         {
             //SetHorizontalVel(xSpeed: 0);
-            Jump();
+            //Jump();
             SetHorizontalVel(xSpeed: 0);
         }
 
