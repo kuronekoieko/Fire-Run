@@ -3,6 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 using System;
+
+public struct BulletProperty
+{
+    public int simultaneousCount;
+    public float shootIntervalSec;
+}
+
 public class BulletManager : MonoBehaviour
 {
     [SerializeField] BulletController bulletPrefab;
@@ -83,10 +90,4 @@ public class BulletManager : MonoBehaviour
 
     }
 
-}
-
-public struct BulletProperty
-{
-    public int simultaneousCount;
-    public float shootIntervalSec;
 }

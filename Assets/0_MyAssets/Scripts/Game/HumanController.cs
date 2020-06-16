@@ -139,7 +139,6 @@ public class HumanController : MonoBehaviour
         GameCanvasManager.i?.ShowAddText(CameraController.i.mainCam, transform.position);
         addPS.Play();
         otherHuman.BulletManager.BulletProperty = bulletManager.BulletProperty;
-        Debug.Log(name + " " + bulletManager.BulletProperty.simultaneousCount);
     }
 
     public void SetFollower(HumanController follower)
