@@ -5,13 +5,14 @@ using UnityEngine;
 public class BulletController : MonoBehaviour
 {
     Rigidbody rb;
-    float speed = 30f;
+    public float Speed { get; set; }
     Vector3 offset = new Vector3(0, 1, 0);
     Transform humanTfm;
     float timer;
     float shootIntervalSec = 1;
-    public void OnInstantiate(Transform humanTfm)
+    public void OnInstantiate(Transform humanTfm, float speed)
     {
+        Speed = speed;
         this.humanTfm = humanTfm;
         transform.position = humanTfm.position + offset;
         gameObject.SetActive(false);
@@ -20,7 +21,7 @@ public class BulletController : MonoBehaviour
 
     void FixedUpdate()
     {
-        rb.velocity = Vector3.forward * speed;
+        rb.velocity = Vector3.forward * Speed;
         //ShootTimer();
     }
 

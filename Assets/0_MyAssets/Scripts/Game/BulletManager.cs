@@ -7,7 +7,8 @@ public class BulletManager : MonoBehaviour
     [SerializeField] BulletController bulletPrefab;
     List<BulletController> bulletControllers;
     float timer;
-    float shootIntervalSec = 0.1f;
+    float shootIntervalSec = 0.5f;
+    float speed = 30;
 
     void Awake()
     {
@@ -15,14 +16,14 @@ public class BulletManager : MonoBehaviour
         for (int i = 0; i < 10; i++)
         {
             bulletControllers.Add(Instantiate(bulletPrefab, Vector3.zero, Quaternion.identity));
-            bulletControllers[i].OnInstantiate(transform);
+            bulletControllers[i].OnInstantiate(transform, speed);
         }
     }
+
     void Start()
     {
         timer = shootIntervalSec;
     }
-
 
     void Update()
     {
@@ -38,10 +39,24 @@ public class BulletManager : MonoBehaviour
         if (bullet == null)
         {
             bullet = Instantiate(bulletPrefab, Vector3.zero, Quaternion.identity);
-            bullet.OnInstantiate(transform);
+            bullet.OnInstantiate(transform, speed);
             bulletControllers.Add(bullet);
         }
         bullet.Shoot();
+    }
+
+    void AddSpeed()
+    {
+        speed = 30;
+        for (int i = 0; i < 10; i++)
+        {
+            bulletControllers[i].Speed = speed;
+        }
+    }
+
+    void ShortenTimeInterval()
+    {
+        shootIntervalSec = 0.1f;
     }
 
 
