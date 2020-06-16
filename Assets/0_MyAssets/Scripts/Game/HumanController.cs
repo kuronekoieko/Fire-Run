@@ -21,12 +21,15 @@ public class HumanController : MonoBehaviour
     Collider col;
     PullController pullController;
     [NonSerialized] public bool isTop;
-    HumanState state;
+    public HumanState state { get; set; }
     public Rigidbody GetRigidbody => rb;
+    BulletManager bulletManager;
+    public BulletManager BulletManager => bulletManager;
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
         col = GetComponent<Collider>();
+        bulletManager = GetComponent<BulletManager>();
         pullController = GetComponent<PullController>();
         state = HumanState.Idle;
     }
@@ -135,6 +138,8 @@ public class HumanController : MonoBehaviour
         HumansManager.i.SetHumansList(otherHuman);
         GameCanvasManager.i?.ShowAddText(CameraController.i.mainCam, transform.position);
         addPS.Play();
+        otherHuman.BulletManager.BulletProperty = bulletManager.BulletProperty;
+        Debug.Log(name + " " + bulletManager.BulletProperty.simultaneousCount);
     }
 
     public void SetFollower(HumanController follower)

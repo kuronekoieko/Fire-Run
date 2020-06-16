@@ -2,17 +2,29 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using System;
 public class BulletManager : MonoBehaviour
 {
     [SerializeField] BulletController bulletPrefab;
     List<BulletController> bulletControllers;
     float timer;
-    float shootIntervalSec = 0.5f;
     float speed = 30;
-    int simultaneousCount = 1;
     float dAngle = 2;
+    HumanController humanController;
+    private BulletProperty bulletProperty;
+    public BulletProperty BulletProperty
+    {
+        set { bulletProperty = value; }
+        get { return bulletProperty; }
+    }
     void Awake()
     {
+        bulletProperty = new BulletProperty
+        {
+            shootIntervalSec = 0.3f,
+            simultaneousCount = 1,
+        };
+        humanController = GetComponent<HumanController>();
         bulletControllers = new List<BulletController>();
         for (int i = 0; i < 10; i++)
         {
@@ -23,24 +35,27 @@ public class BulletManager : MonoBehaviour
 
     void Start()
     {
-        timer = shootIntervalSec;
+        timer = bulletProperty.shootIntervalSec;
     }
 
     void Update()
     {
-        ShootTimer();
+        if (humanController.state == HumanState.Run)
+        {
+            ShootTimer();
+        }
+
     }
 
     void ShootTimer()
     {
         timer += Time.deltaTime;
-        if (timer < shootIntervalSec) { return; }
+        if (timer < bulletProperty.shootIntervalSec) { return; }
         timer = 0;
 
-
-        for (int i = 0; i < simultaneousCount; i++)
+        int n = bulletProperty.simultaneousCount;
+        for (int i = 0; i < n; i++)
         {
-            int n = simultaneousCount;
             float angle = dAngle * (-Mathf.Floor(n / 2) + i + ((n + 1) % 2) / 2f);
             var bullet = bulletControllers.Where(b => !b.gameObject.activeSelf).FirstOrDefault();
             if (bullet == null)
@@ -55,12 +70,23 @@ public class BulletManager : MonoBehaviour
 
     public void ShortenTimeInterval()
     {
-        shootIntervalSec = 0.1f;
+        bulletProperty.shootIntervalSec = 0.1f;
     }
 
     public void AddSimultaneousCount()
     {
-        simultaneousCount += 1;
+        bulletProperty.simultaneousCount += 1;
     }
 
+    public void SetProperty()
+    {
+
+    }
+
+}
+
+public struct BulletProperty
+{
+    public int simultaneousCount;
+    public float shootIntervalSec;
 }
