@@ -45,19 +45,9 @@ public class BulletManager : MonoBehaviour
         bullet.Shoot();
     }
 
-    void AddSpeed()
-    {
-        speed = 30;
-        for (int i = 0; i < 10; i++)
-        {
-            bulletControllers[i].Speed = speed;
-        }
-    }
-
-    void ShortenTimeInterval()
+    public void ShortenTimeInterval()
     {
         shootIntervalSec = 0.1f;
     }
-
 
 }
