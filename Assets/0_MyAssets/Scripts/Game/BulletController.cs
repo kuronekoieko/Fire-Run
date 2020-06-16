@@ -21,15 +21,18 @@ public class BulletController : MonoBehaviour
 
     void FixedUpdate()
     {
-        rb.velocity = Vector3.forward * Speed;
-        //ShootTimer();
+        rb.velocity = transform.forward * Speed;
     }
 
 
-    public void Shoot()
+    public void Shoot(float angle)
     {
         gameObject.SetActive(true);
         transform.position = humanTfm.position + offset;
+        var eulerAngles = transform.eulerAngles;
+        eulerAngles.y = angle;
+        var direction = Quaternion.Euler(eulerAngles) * Vector3.forward;
+        transform.forward = direction;
     }
 
     void ShootTimer()

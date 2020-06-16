@@ -9,7 +9,8 @@ public class BulletManager : MonoBehaviour
     float timer;
     float shootIntervalSec = 0.5f;
     float speed = 30;
-
+    int simultaneousCount = 1;
+    float dAngle = 30;
     void Awake()
     {
         bulletControllers = new List<BulletController>();
@@ -35,14 +36,20 @@ public class BulletManager : MonoBehaviour
         timer += Time.deltaTime;
         if (timer < shootIntervalSec) { return; }
         timer = 0;
-        var bullet = bulletControllers.Where(b => !b.gameObject.activeSelf).FirstOrDefault();
-        if (bullet == null)
+
+
+        for (int i = 0; i < simultaneousCount; i++)
         {
-            bullet = Instantiate(bulletPrefab, Vector3.zero, Quaternion.identity);
-            bullet.OnInstantiate(transform, speed);
-            bulletControllers.Add(bullet);
+            float angle = dAngle * (-Mathf.FloorToInt(simultaneousCount / 2) + i + ((simultaneousCount + 1) % 2) / 2);
+            var bullet = bulletControllers.Where(b => !b.gameObject.activeSelf).FirstOrDefault();
+            if (bullet == null)
+            {
+                bullet = Instantiate(bulletPrefab, Vector3.zero, Quaternion.identity);
+                bullet.OnInstantiate(transform, speed);
+                bulletControllers.Add(bullet);
+            }
+            bullet.Shoot(angle);
         }
-        bullet.Shoot();
     }
 
     public void ShortenTimeInterval()
