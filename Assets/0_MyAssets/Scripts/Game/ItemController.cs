@@ -4,6 +4,7 @@ using UnityEngine;
 public enum ItemType
 {
     TimeInterval,
+    AddSimultaneousCount,
 }
 public class ItemController : MonoBehaviour
 {
@@ -22,6 +23,9 @@ public class ItemController : MonoBehaviour
         {
             case ItemType.TimeInterval:
                 bulletManager.ShortenTimeInterval();
+                break;
+            case ItemType.AddSimultaneousCount:
+                bulletManager.AddSimultaneousCount();
                 break;
             default:
                 break;
