@@ -15,12 +15,12 @@ public class HumanController : MonoBehaviour
     [NonSerialized] public Rigidbody rb;
     [NonSerialized] public float speed = 10f * 1.5f;
     [SerializeField] ParticleSystem splatPS;
-    [SerializeField] ParticleSystem addPS;
+    public ParticleSystem addPS;
     [SerializeField] Animator animator;
     Vector3 vel;
     Collider col;
     PullController pullController;
-    [NonSerialized] public bool isTop;
+    //[NonSerialized] public bool isTop;
     public HumanState state { get; set; }
     public Rigidbody GetRigidbody => rb;
     BulletManager bulletManager;
@@ -37,7 +37,7 @@ public class HumanController : MonoBehaviour
     public void OnInstantiate()
     {
         state = HumanState.Run;
-        isTop = true;
+        // isTop = true;
     }
 
     void Start()
@@ -60,12 +60,12 @@ public class HumanController : MonoBehaviour
             case HumanState.Idle:
                 break;
             case HumanState.Run:
-                if (isTop)
-                {
-                    vel.z = speed;
-                    vel.y = rb.velocity.y;
-                    rb.velocity = vel;
-                }
+                // if (isTop)
+                // {
+                vel.z = speed;
+                vel.y = rb.velocity.y;
+                rb.velocity = vel;
+                // }
                 break;
             case HumanState.Jumping:
                 var groundTfm = GetGround();
@@ -118,7 +118,7 @@ public class HumanController : MonoBehaviour
 
     void CheckBlock(Collider other)
     {
-        if (!isTop) { return; }
+        //if (!isTop) { return; }
         var block = other.GetComponent<BlockController>();
         if (block == null) { return; }
         HumansManager.i.HideHuman();

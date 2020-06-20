@@ -18,6 +18,7 @@ public class BlockController : MonoBehaviour
         this.ObserveEveryValueChanged(hp => this.hp)
             .Subscribe(hp => SetView(hp))
             .AddTo(this.gameObject);
+        ps.GetComponent<Renderer>().material.color = colors[0];
     }
 
 
@@ -51,5 +52,6 @@ public class BlockController : MonoBehaviour
         int index = Mathf.FloorToInt(hp / 5);
         if (colors.Length - 1 < index) { index = colors.Length - 1; }
         meshRenderer.material.color = colors[index];
+        ps.GetComponent<Renderer>().material.color = colors[index];
     }
 }

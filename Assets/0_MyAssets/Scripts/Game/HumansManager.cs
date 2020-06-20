@@ -98,7 +98,7 @@ public class HumansManager : MonoBehaviour
 
     public void HideHuman()
     {
-        humanControllers[0].isTop = false;
+        // humanControllers[0].isTop = false;
         humanControllers[0].gameObject.SetActive(false);
         humanControllers.RemoveAt(0);
         if (humanControllers.Count == 0)
@@ -106,7 +106,7 @@ public class HumansManager : MonoBehaviour
             Variables.screenState = ScreenState.Failed;
             return;
         }
-        humanControllers[0].isTop = true;
+        // humanControllers[0].isTop = true;
         humanControllers[0].gameObject.layer = LayerMask.NameToLayer("Default");
     }
 
