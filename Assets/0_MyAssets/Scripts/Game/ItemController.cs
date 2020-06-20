@@ -11,6 +11,7 @@ public class ItemController : MonoBehaviour
 {
     [SerializeField] ItemType itemType;
     [SerializeField] GameObject[] models;
+    [SerializeField] ParticleSystem[] zonePSs;
     public ItemType ItemType => itemType;
     Tween rotateTween;
     void Start()
@@ -19,6 +20,7 @@ public class ItemController : MonoBehaviour
         for (int i = 0; i < models.Length; i++)
         {
             models[i].SetActive(i == (int)itemType);
+            zonePSs[i].gameObject.SetActive(i == (int)itemType);
         }
     }
     void OnTriggerEnter(Collider other)

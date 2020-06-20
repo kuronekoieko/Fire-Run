@@ -78,7 +78,7 @@ public class BulletManager : MonoBehaviour
     public void ShortenTimeInterval()
     {
         humanController.addPS.Play();
-        bulletProperty.shootIntervalSec = 0.2f;
+        bulletProperty.shootIntervalSec = 0.1f;
     }
 
     public void AddSimultaneousCount()
