@@ -28,7 +28,7 @@ public class BulletManager : MonoBehaviour
     {
         bulletProperty = new BulletProperty
         {
-            shootIntervalSec = 0.3f,
+            shootIntervalSec = 0.5f,
             simultaneousCount = 1,
         };
         humanController = GetComponent<HumanController>();
@@ -77,7 +77,7 @@ public class BulletManager : MonoBehaviour
 
     public void ShortenTimeInterval()
     {
-        bulletProperty.shootIntervalSec = 0.1f;
+        bulletProperty.shootIntervalSec = 0.2f;
     }
 
     public void AddSimultaneousCount()

@@ -4,17 +4,22 @@ using UnityEngine;
 using DG.Tweening;
 public enum ItemType
 {
-    TimeInterval,
-    AddSimultaneousCount,
+    AddSimultaneousCount = 0,
+    TimeInterval = 1,
 }
 public class ItemController : MonoBehaviour
 {
     [SerializeField] ItemType itemType;
+    [SerializeField] GameObject[] models;
     public ItemType ItemType => itemType;
     Tween rotateTween;
     void Start()
     {
         rotateTween = transform.DORotate(new Vector3(0, 360, 0), 2).SetEase(Ease.Linear).SetLoops(-1).SetRelative();
+        for (int i = 0; i < models.Length; i++)
+        {
+            models[i].SetActive(i == (int)itemType);
+        }
     }
     void OnTriggerEnter(Collider other)
     {

@@ -9,7 +9,7 @@ public class BulletController : MonoBehaviour
     Vector3 offset = new Vector3(0, 1, 0);
     Transform humanTfm;
     float timer;
-    float shootIntervalSec = 1;
+    float shootIntervalSec = 3;
     public void OnInstantiate(Transform humanTfm, float speed)
     {
         Speed = speed;
@@ -22,11 +22,13 @@ public class BulletController : MonoBehaviour
     void FixedUpdate()
     {
         rb.velocity = transform.forward * Speed;
+        ShootTimer();
     }
 
 
     public void Shoot(float angle)
     {
+        timer = 0;
         gameObject.SetActive(true);
         transform.position = humanTfm.position + offset;
         var eulerAngles = transform.eulerAngles;
@@ -41,8 +43,7 @@ public class BulletController : MonoBehaviour
         if (timer < shootIntervalSec) { return; }
         timer = 0;
 
-        gameObject.SetActive(true);
-        transform.position = humanTfm.position + offset;
+        gameObject.SetActive(false);
     }
 
 

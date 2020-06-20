@@ -10,7 +10,7 @@ public class HumansManager : MonoBehaviour
     List<HumanController> humanControllers;
     public static HumansManager i;
     Vector3 tapPos;
-    [NonSerialized] public float distance = 0.4f;
+    [NonSerialized] public float distance = 0.8f;
     [SerializeField] Joystick joystick;
     public Vector3 firstHumanPos
     {
@@ -88,7 +88,7 @@ public class HumansManager : MonoBehaviour
     {
         var lastHuman = humanControllers[humanControllers.Count - 1];
         var pos = lastHuman.transform.position;
-        pos.z -= distance;
+        pos.x -= distance;
         human.transform.position = pos;
         human.EnableRun();
         human.gameObject.layer = LayerMask.NameToLayer("Follower");

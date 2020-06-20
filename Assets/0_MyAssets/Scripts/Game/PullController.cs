@@ -28,7 +28,19 @@ public class PullController : MonoBehaviour
     void FixedUpdate()
     {
         //PutOn();
-        Pull();
+        //Pull();
+
+    }
+    void LateUpdate()
+    {
+        PutSide();
+    }
+
+    void PutSide()
+    {
+        if (follower == null) { return; }
+        follower.transform.position = transform.position + Vector3.right * HumansManager.i.distance;
+        follower.GetRigidbody.isKinematic = true;
     }
 
     void PutOn()
