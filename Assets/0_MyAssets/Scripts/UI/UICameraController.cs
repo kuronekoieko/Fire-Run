@@ -16,7 +16,7 @@ public class UICameraController : MonoBehaviour
     {
         if (i == null) i = this;
         Camera uiCam = GetComponent<Camera>();
-        uiCam.cullingMask |= 1 << LayerMask.NameToLayer(Strings.LAYER_CONFETTI);
+        // uiCam.cullingMask |= 1 << LayerMask.NameToLayer(Strings.LAYER_CONFETTI);
     }
 
     void Update()
