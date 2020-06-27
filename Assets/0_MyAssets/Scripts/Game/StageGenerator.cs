@@ -8,8 +8,7 @@ public class StageGenerator : MonoBehaviour
 
     public void Generate()
     {
-        int stageIndex = 0;
-        ObjInfo[,] stageData = Variables.stageDatas[stageIndex];
+        ObjInfo[,] stageData = Variables.stageDatas[Variables.currentStageNum - 1];
         Vector3 pos = Vector3.zero;
         for (int iz = 0; iz < stageData.GetLength(0); iz++)
         {

@@ -5,27 +5,29 @@ using System.IO;
 
 public class CSVManager : MonoBehaviour
 {
-    [SerializeField] TextAsset stageDataCSV;
 
     void Awake()
     {
-        SetStageDatas();
-
+        TextAsset[] stageCSVFiles = Resources.LoadAll<TextAsset>("Stages");
+        Variables.stageDatas = new ObjInfo[stageCSVFiles.Length][,];
+        for (int i = 0; i < stageCSVFiles.Length; i++)
+        {
+            Variables.stageDatas[i] = GetStageDatas(stageCSVFiles[i]);
+        }
     }
 
-    void SetStageDatas()
+    ObjInfo[,] GetStageDatas(TextAsset stageDataCSV)
     {
-        Variables.stageDatas = new ObjInfo[1][,];
         var stageDataStrList = CsvToStrList(stageDataCSV);
-        int stageIndex = 0;
-        Variables.stageDatas[stageIndex] = new ObjInfo[stageDataStrList.Count, stageDataStrList[0].Length];
-        for (int iy = Variables.stageDatas[stageIndex].GetLength(0) - 1; iy > -1; iy--)
+        var stageData = new ObjInfo[stageDataStrList.Count, stageDataStrList[0].Length];
+        for (int iy = stageData.GetLength(0) - 1; iy > -1; iy--)
         {
-            for (int ix = 0; ix < Variables.stageDatas[stageIndex].GetLength(1); ix++)
+            for (int ix = 0; ix < stageData.GetLength(1); ix++)
             {
-                Variables.stageDatas[stageIndex][Variables.stageDatas[stageIndex].GetLength(0) - 1 - iy, ix] = GetObjInfo(stageDataStrList[iy][ix]);
+                stageData[stageData.GetLength(0) - 1 - iy, ix] = GetObjInfo(stageDataStrList[iy][ix]);
             }
         }
+        return stageData;
     }
 
     List<string[]> CsvToStrList(TextAsset csvFile)
