@@ -19,4 +19,12 @@ public class Variables : MonoBehaviour
     }
     private static int _currentstageIndex;
     public static int humanCount;
+    public static ObjInfo[][,] stageDatas;
+}
+
+
+public struct ObjInfo
+{
+    public string key;
+    public int option;
 }

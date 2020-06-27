@@ -13,10 +13,13 @@ public class GameManager : MonoBehaviour
     [SerializeField] HumansManager _humansManager;
     public HumansManager humansManager => _humansManager;
     public static GameManager i;
+    StageGenerator stageGenerator;
 
     void Start()
     {
         i = i ?? this;
+        stageGenerator = GetComponent<StageGenerator>();
+        stageGenerator.Generate();
         //stages = Resources.LoadAll("Stages", typeof(GameObject)).Cast<GameObject>().ToArray();
         //Variables.lastStageIndex = stages.Length - 1;
         //Instantiate(stages[Variables.currentStageIndex], Vector3.zero, Quaternion.identity);
