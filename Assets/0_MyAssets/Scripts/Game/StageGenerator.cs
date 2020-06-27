@@ -10,6 +10,7 @@ public class StageGenerator : MonoBehaviour
     {
         int stageIndex = 0;
         ObjInfo[,] stageData = Variables.stageDatas[stageIndex];
+        Vector3 pos = Vector3.zero;
         for (int iz = 0; iz < stageData.GetLength(0); iz++)
         {
             // Debug.Log(iz + " ====================");
@@ -17,23 +18,30 @@ public class StageGenerator : MonoBehaviour
             for (int ix = 0; ix < stageData.GetLength(1); ix++)
             {
                 //Debug.Log(stageDatas[iz, ix].key);
-                Vector3 pos = new Vector3(-offset * 2 + (float)ix * offset, offset / 2f, iz * offset);
-                StageGimmick gimmick = StageGimmicksSO.i.gimmicks.Where(g => g.key == stageData[iz, ix].key).FirstOrDefault();
-                if (gimmick.gimmickObj == null) { continue; }
-                GameObject obj = Instantiate(gimmick.gimmickObj, pos, Quaternion.identity);
-                //TODO:いつか直す
-                switch (gimmick.key)
-                {
-                    case "b":
-                        obj.GetComponent<BlockController>().OnInstantitate(stageData[iz, ix].option);
-                        break;
-                    case "i":
-                        obj.GetComponent<ItemController>().OnInstantitate(stageData[iz, ix].option);
-                        break;
-                    default:
-                        break;
-                }
+                pos.x = -offset * 2 + (float)ix * offset;
+                pos.y = offset / 2f;
+                pos.z = iz * offset;
+                GenerateObj(stageData[iz, ix], pos);
             }
+        }
+    }
+
+    void GenerateObj(ObjInfo objInfo, Vector3 pos)
+    {
+        StageGimmick gimmick = StageGimmicksSO.i.gimmicks.Where(g => g.key == objInfo.key).FirstOrDefault();
+        if (gimmick.gimmickObj == null) { return; }
+        GameObject obj = Instantiate(gimmick.gimmickObj, pos, Quaternion.identity);
+        //TODO:いつか直す
+        switch (gimmick.key)
+        {
+            case "b":
+                obj.GetComponent<BlockController>().OnInstantitate(objInfo.option);
+                break;
+            case "i":
+                obj.GetComponent<ItemController>().OnInstantitate(objInfo.option);
+                break;
+            default:
+                break;
         }
     }
 }
