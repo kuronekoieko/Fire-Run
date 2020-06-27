@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using System;
 public enum ItemType
 {
     AddSimultaneousCount = 0,
@@ -22,6 +23,10 @@ public class ItemController : MonoBehaviour
             models[i].SetActive(i == (int)itemType);
             zonePSs[i].gameObject.SetActive(i == (int)itemType);
         }
+    }
+    public void OnInstantitate(int itemTypeInt)
+    {
+        itemType = (ItemType)Enum.ToObject(typeof(ItemType), itemTypeInt); ;
     }
     void OnTriggerEnter(Collider other)
     {

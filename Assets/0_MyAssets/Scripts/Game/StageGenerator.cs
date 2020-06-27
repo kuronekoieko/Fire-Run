@@ -20,8 +20,19 @@ public class StageGenerator : MonoBehaviour
                 Vector3 pos = new Vector3(-offset * 2 + (float)ix * offset, offset / 2f, iz * offset);
                 StageGimmick gimmick = StageGimmicksSO.i.gimmicks.Where(g => g.key == stageData[iz, ix].key).FirstOrDefault();
                 if (gimmick.gimmickObj == null) { continue; }
-                Instantiate(gimmick.gimmickObj, pos, Quaternion.identity);
-
+                GameObject obj = Instantiate(gimmick.gimmickObj, pos, Quaternion.identity);
+                //TODO:いつか直す
+                switch (gimmick.key)
+                {
+                    case "b":
+                        obj.GetComponent<BlockController>().OnInstantitate(stageData[iz, ix].option);
+                        break;
+                    case "i":
+                        obj.GetComponent<ItemController>().OnInstantitate(stageData[iz, ix].option);
+                        break;
+                    default:
+                        break;
+                }
             }
         }
     }

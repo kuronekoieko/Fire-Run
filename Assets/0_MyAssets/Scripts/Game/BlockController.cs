@@ -21,6 +21,11 @@ public class BlockController : MonoBehaviour
         ps.GetComponent<Renderer>().material.color = colors[0];
     }
 
+    public void OnInstantitate(int hp)
+    {
+        this.hp = hp;
+    }
+
 
     void Update()
     {
