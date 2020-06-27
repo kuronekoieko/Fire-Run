@@ -12,9 +12,9 @@ using UnityEngine.SceneManagement;
 public class Variables : MonoBehaviour
 {
     public static ScreenState screenState = ScreenState.Game;
-    public static int currentStageNum
+    public static int currentStageIndex
     {
-        set { _currentstageIndex = Mathf.Clamp(value, 0, SceneManager.sceneCountInBuildSettings - 1); }
+        set { _currentstageIndex = Mathf.Clamp(value, 0, stageDatas.Length - 1); }
         get { return _currentstageIndex; }
     }
     private static int _currentstageIndex;

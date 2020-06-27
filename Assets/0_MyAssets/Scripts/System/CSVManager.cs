@@ -8,15 +8,20 @@ public class CSVManager : MonoBehaviour
 
     void Awake()
     {
+        SetStageDatas();
+    }
+
+    void SetStageDatas()
+    {
         TextAsset[] stageCSVFiles = Resources.LoadAll<TextAsset>("Stages");
         Variables.stageDatas = new ObjInfo[stageCSVFiles.Length][,];
         for (int i = 0; i < stageCSVFiles.Length; i++)
         {
-            Variables.stageDatas[i] = GetStageDatas(stageCSVFiles[i]);
+            Variables.stageDatas[i] = GetStageData(stageCSVFiles[i]);
         }
     }
 
-    ObjInfo[,] GetStageDatas(TextAsset stageDataCSV)
+    ObjInfo[,] GetStageData(TextAsset stageDataCSV)
     {
         var stageDataStrList = CsvToStrList(stageDataCSV);
         var stageData = new ObjInfo[stageDataStrList.Count, stageDataStrList[0].Length];

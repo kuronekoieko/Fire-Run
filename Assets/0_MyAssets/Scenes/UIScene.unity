@@ -641,7 +641,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4446418dfdc141cda5e54f2d077c189, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stageDataCSV: {fileID: 4900000, guid: bc83ce9e549584efe9968ed5b2107012, type: 3}
 --- !u!4 &1703279015 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4973469075793816, guid: 211df3921ba166e4d97f049834dc5490,
@@ -749,7 +748,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1902696883
 RectTransform:
   m_ObjectHideFlags: 0

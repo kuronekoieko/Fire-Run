@@ -24,7 +24,7 @@ public class GameCanvasManager : BaseCanvasManager
         i = i ?? this;
         base.SetScreenAction(thisScreen: ScreenState.Game);
 
-        this.ObserveEveryValueChanged(currentStageIndex => Variables.currentStageNum)
+        this.ObserveEveryValueChanged(currentStageIndex => Variables.currentStageIndex)
             .Subscribe(currentStageIndex => { ShowStageNumText(); })
             .AddTo(this.gameObject);
 
@@ -83,6 +83,6 @@ public class GameCanvasManager : BaseCanvasManager
 
     void ShowStageNumText()
     {
-        stageNumText.text = "LEVEL " + (Variables.currentStageNum + 1).ToString("000");
+        stageNumText.text = "LEVEL " + (Variables.currentStageIndex + 1).ToString("000");
     }
 }
