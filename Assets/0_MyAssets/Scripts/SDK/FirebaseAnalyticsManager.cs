@@ -11,7 +11,7 @@ public class FirebaseAnalyticsManager : MonoBehaviour
     public static FirebaseAnalyticsManager i;
     bool isAvailable;
 
-    /*
+
     void Awake()
     {
         if (i == null) i = this;
@@ -63,10 +63,5 @@ public class FirebaseAnalyticsManager : MonoBehaviour
         if (!isAvailable) { return; }
         Firebase.Analytics.FirebaseAnalytics.SetCurrentScreen(screenName: title, screenClass: title);
     }
-
-
-
- 
-    */
 
 }

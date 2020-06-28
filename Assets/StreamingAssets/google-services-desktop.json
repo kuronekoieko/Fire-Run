@@ -1,0 +1,37 @@
+{
+  "client": [
+    {
+      "services": {
+        "appinvite_service": {
+          "status": 1
+        }, 
+        "analytics_service": {
+          "status": 0
+        }
+      }, 
+      "oauth_client": [
+        {
+          "client_id": "514749915525-un6h8ja78412u72s08mfp9vie2vh7aqq.apps.googleusercontent.com"
+        }
+      ], 
+      "api_key": [
+        {
+          "current_key": "AIzaSyCeLergwIcsrjBEMzyysIShPWGZC553Y3Y"
+        }
+      ], 
+      "client_info": {
+        "mobilesdk_app_id": "1:514749915525:ios:4a4f45d59a6baaab2b64ec", 
+        "android_client_info": {
+          "package_name": "com.firerun.games"
+        }
+      }
+    }
+  ], 
+  "configuration_version": "1", 
+  "project_info": {
+    "storage_bucket": "unity-7bca6.appspot.com", 
+    "project_id": "unity-7bca6", 
+    "firebase_url": "https://unity-7bca6.firebaseio.com", 
+    "project_number": "514749915525"
+  }
+}
