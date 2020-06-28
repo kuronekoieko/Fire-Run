@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UniRx;
+using System.Linq;
 public class BlockController : MonoBehaviour
 {
 
@@ -10,7 +11,7 @@ public class BlockController : MonoBehaviour
     [SerializeField] TextMeshPro textMeshPro;
     [SerializeField] TextMeshPro textMeshPro1;
     [SerializeField] ParticleSystem ps;
-    [SerializeField] Color[] colors;
+    [SerializeField] ColorProperty[] colorProperty;
     [SerializeField] MeshRenderer meshRenderer;
     public int getHp => hp;
     void Start()
@@ -18,7 +19,7 @@ public class BlockController : MonoBehaviour
         this.ObserveEveryValueChanged(hp => this.hp)
             .Subscribe(hp => SetView(hp))
             .AddTo(this.gameObject);
-        ps.GetComponent<Renderer>().material.color = colors[0];
+        ps.GetComponent<Renderer>().material.color = colorProperty[0].color;
     }
 
     public void OnInstantitate(int hp)
@@ -54,9 +55,13 @@ public class BlockController : MonoBehaviour
     {
         textMeshPro1.text = hp.ToString();
         textMeshPro.text = hp.ToString();
-        int index = Mathf.FloorToInt(hp / 5);
-        if (colors.Length - 1 < index) { index = colors.Length - 1; }
-        meshRenderer.material.color = colors[index];
-        ps.GetComponent<Renderer>().material.color = colors[index];
+        meshRenderer.material.color = colorProperty.Where(c => c.minHp <= hp).LastOrDefault().color;
     }
+}
+
+[System.Serializable]
+public struct ColorProperty
+{
+    public Color color;
+    public int minHp;
 }
