@@ -75,6 +75,7 @@ public class UIManager : MonoBehaviour
             canvases[i].OnInitialize();
         }
         Variables.screenState = ScreenState.Start;
+        FirebaseAnalyticsManager.i.LogScreen("Game");
     }
 
     // イベントハンドラー（イベント発生時に動かしたい処理）

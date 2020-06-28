@@ -31,7 +31,9 @@ public class MyBuildPostprocessor : IPreprocessBuild
         PBXProject pbxProject = new PBXProject();
         pbxProject.ReadFromFile(projectPath);
 
-        string target = pbxProject.TargetGuidByName("Unity-iPhone");
+        //Exception: Calling TargetGuidByName with name='Unity-iPhone' is deprecated.【解決策】
+        //https://koujiro.hatenablog.com/entry/2020/03/16/050848
+        string target = pbxProject.GetUnityMainTargetGuid();
 
 
         //pbxProject.AddCapability(target, PBXCapabilityType.InAppPurchase);
