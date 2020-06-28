@@ -13,6 +13,7 @@ public enum ScreenState
     Failed,
     Home,
     Debug,
+    Start,
 }
 
 /// <summary>

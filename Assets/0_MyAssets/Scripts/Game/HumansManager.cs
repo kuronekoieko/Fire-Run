@@ -41,8 +41,10 @@ public class HumansManager : MonoBehaviour
 
     void Update()
     {
+        if (Variables.screenState != ScreenState.Game) { return; }
         if (Input.GetMouseButtonDown(0))
         {
+            humanControllers[0].EnableRun();
             tapPos = Input.mousePosition;
         }
 

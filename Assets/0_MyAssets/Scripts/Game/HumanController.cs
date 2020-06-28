@@ -36,7 +36,7 @@ public class HumanController : MonoBehaviour
 
     public void OnInstantiate()
     {
-        state = HumanState.Run;
+        state = HumanState.Idle;
         // isTop = true;
     }
 
@@ -55,6 +55,7 @@ public class HumanController : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (Variables.screenState != ScreenState.Game) { return; }
         switch (state)
         {
             case HumanState.Idle:
