@@ -8,7 +8,7 @@ using UnityEngine;
 /// </summary>
 public class TenjinScript : MonoBehaviour
 {
-    /*   
+
     private static readonly string API_KEY = "EDZBXKASDVB6NXDGYBPZUSZYNX1HJKUW";
     private static BaseTenjin instance;
 
@@ -30,6 +30,5 @@ public class TenjinScript : MonoBehaviour
             instance.Connect();
         }
     }
-    */
 
 }
