@@ -25,7 +25,7 @@ public class ClearCanvasManager : BaseCanvasManager
 
     protected override void OnOpen()
     {
-        UICameraController.i.PlayConfetti();
+        // UICameraController.i.PlayConfetti();
         DOVirtual.DelayedCall(1.2f, () =>
         {
             gameObject.SetActive(true);
