@@ -9,7 +9,7 @@ public class BulletController : MonoBehaviour
     Vector3 offset = new Vector3(0, 1, 0);
     Transform humanTfm;
     float timer;
-    float shootIntervalSec = 3;
+    float shootIntervalSec = 2;
     public void OnInstantiate(Transform humanTfm, float speed)
     {
         Speed = speed;
