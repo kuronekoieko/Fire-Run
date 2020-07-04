@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4856141332662162850}
   - component: {fileID: 7117658381136872038}
   - component: {fileID: 5795161077035488609}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Cone (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1025,7 +1025,7 @@ GameObject:
   - component: {fileID: 1083765489905137651}
   - component: {fileID: 5043253770238117215}
   - component: {fileID: 3643900074957693569}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Cone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2003,7 +2003,7 @@ GameObject:
   - component: {fileID: 2829780130046566758}
   - component: {fileID: 4174394103237673812}
   - component: {fileID: 7426089496948994523}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Cone (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2981,7 +2981,7 @@ GameObject:
   - component: {fileID: 5549475478063218206}
   - component: {fileID: 5622575435732943969}
   - component: {fileID: 7022359996861923080}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Cone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3959,7 +3959,7 @@ GameObject:
   - component: {fileID: 1711584408714712897}
   - component: {fileID: 2423080367222238755}
   - component: {fileID: 1690966816752679788}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Cone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4937,7 +4937,7 @@ GameObject:
   - component: {fileID: 1251398356058981249}
   - component: {fileID: 8341348703434163845}
   - component: {fileID: 8077443351037409575}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Cone (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6150,7 +6150,7 @@ GameObject:
   - component: {fileID: 2188534217067138849}
   - component: {fileID: 2188534217067138848}
   m_Layer: 10
-  m_Name: Block
+  m_Name: IronBlock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6207,7 +6207,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ce070032b0694be185fcd263624e7ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 5
+  blockType: 1
+  hp: 0
   textMeshPro: {fileID: 2188534217307244213}
   textMeshPro1: {fileID: 2188534217134211116}
   ps: {fileID: 6113326942260428403}
@@ -6660,7 +6661,7 @@ GameObject:
   - component: {fileID: 1524369567073474813}
   - component: {fileID: 2444692860144960004}
   - component: {fileID: 99130638306663787}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Cone (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7682,7 +7683,7 @@ GameObject:
   - component: {fileID: 6419217786241321266}
   - component: {fileID: 783874749557641152}
   - component: {fileID: 1084546231501626567}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Cone (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8660,7 +8661,7 @@ GameObject:
   - component: {fileID: 3729910618394393991}
   - component: {fileID: 2336819955318590055}
   - component: {fileID: 7334801186167856426}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Cone (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9672,7 +9673,7 @@ GameObject:
   - component: {fileID: 2781340423153138131}
   - component: {fileID: 2754765184153571878}
   - component: {fileID: 2130457894003732202}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Cone (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10650,7 +10651,7 @@ GameObject:
   - component: {fileID: 4700372878689193714}
   - component: {fileID: 7158412425349736252}
   - component: {fileID: 1276182070436324814}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Cone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11628,7 +11629,7 @@ GameObject:
   - component: {fileID: 7795108600612187602}
   - component: {fileID: 1841062226628938082}
   - component: {fileID: 4178185830825977200}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Cone (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12606,7 +12607,7 @@ GameObject:
   - component: {fileID: 3655232716774039477}
   - component: {fileID: 706795871644549419}
   - component: {fileID: 5126493913205626411}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Cone (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14633,7 +14634,7 @@ GameObject:
   - component: {fileID: 2542695852579786037}
   - component: {fileID: 2205892580763671890}
   - component: {fileID: 140836822317135481}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Cone (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15609,7 +15610,7 @@ GameObject:
   - component: {fileID: 8592963505378546909}
   - component: {fileID: 6113326942260428403}
   - component: {fileID: 7039830042744240686}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: BrokenParticle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20457,7 +20458,7 @@ GameObject:
   - component: {fileID: 8189810405223844958}
   - component: {fileID: 4902302993337200675}
   - component: {fileID: 7080245773792050862}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Cone (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21435,7 +21436,7 @@ GameObject:
   - component: {fileID: 2008170936923967805}
   - component: {fileID: 4774077980116711500}
   - component: {fileID: 2183808936266390629}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Cone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22413,7 +22414,7 @@ GameObject:
   - component: {fileID: 8755614195019777797}
   - component: {fileID: 1014825656154805330}
   - component: {fileID: 5827855949648211117}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Cone (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23391,7 +23392,7 @@ GameObject:
   - component: {fileID: 1286741226034974475}
   - component: {fileID: 6467841196351812520}
   - component: {fileID: 458425475564528221}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Cone (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24369,7 +24370,7 @@ GameObject:
   - component: {fileID: 8094233486016896238}
   - component: {fileID: 2338622808097258162}
   - component: {fileID: 9202955189583755592}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Cone (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25347,7 +25348,7 @@ GameObject:
   - component: {fileID: 1129715545402292791}
   - component: {fileID: 8098023478817012732}
   - component: {fileID: 438290497285729557}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Cone (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

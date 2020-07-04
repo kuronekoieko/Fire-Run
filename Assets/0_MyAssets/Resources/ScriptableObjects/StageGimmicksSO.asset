@@ -13,13 +13,14 @@ MonoBehaviour:
   m_Name: StageGimmicksSO
   m_EditorClassIdentifier: 
   gimmicks:
-  - gimmickObj: {fileID: 0}
-    key: 
-    memo: "\u4F55\u3082\u7F6E\u304B\u306A\u3044"
-  - gimmickObj: {fileID: 2188534217067138851, guid: b4fbecddd56cc42a1ba8d89a091366be,
+  - gimmickObj: {fileID: 2188534217067138851, guid: 64520262e86e440d19ba2fb0be3c55e1,
       type: 3}
     key: b
-    memo: 
+    memo: "\u30D6\u30ED\u30C3\u30AF"
+  - gimmickObj: {fileID: 2188534217067138851, guid: b4fbecddd56cc42a1ba8d89a091366be,
+      type: 3}
+    key: n
+    memo: "\u30CB\u30FC\u30C9\u30EB\u30D6\u30ED\u30C3\u30AF"
   - gimmickObj: {fileID: 4443562084468178802, guid: 78d983dd9e1b24d2ba1cc9b4233df682,
       type: 3}
     key: i

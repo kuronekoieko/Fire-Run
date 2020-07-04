@@ -4,9 +4,15 @@ using UnityEngine;
 using TMPro;
 using UniRx;
 using System.Linq;
+
+public enum BlockType
+{
+    Normal,
+    Needle,
+}
 public class BlockController : MonoBehaviour
 {
-
+    [SerializeField] BlockType blockType;
     [SerializeField] int hp;
     [SerializeField] TextMeshPro textMeshPro;
     [SerializeField] TextMeshPro textMeshPro1;
@@ -40,6 +46,7 @@ public class BlockController : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
+        if (blockType == BlockType.Needle) { return; }
         var bullet = other.gameObject.GetComponent<BulletController>();
         if (bullet == null) { return; }
         hp--;
@@ -53,6 +60,7 @@ public class BlockController : MonoBehaviour
 
     public void SetView(int hp)
     {
+        if (blockType == BlockType.Needle) { return; }
         textMeshPro1.text = hp.ToString();
         textMeshPro.text = hp.ToString();
         meshRenderer.material.color = colorProperty.Where(c => c.minHp <= hp).LastOrDefault().color;
