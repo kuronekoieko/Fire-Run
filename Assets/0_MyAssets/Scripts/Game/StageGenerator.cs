@@ -20,24 +20,26 @@ public class StageGenerator : MonoBehaviour
                 pos.x = -offset * 2 + (float)ix * offset;
                 pos.y = offset / 2f;
                 pos.z = iz * offset;
-                GenerateObj(stageData[iz, ix], pos);
+                GenerateObj(stageData[iz, ix].key_under, stageData[iz, ix].option_under, pos);
+                pos.y += offset;
+                GenerateObj(stageData[iz, ix].key_upper, stageData[iz, ix].option_upper, pos);
             }
         }
     }
 
-    void GenerateObj(ObjInfo objInfo, Vector3 pos)
+    void GenerateObj(string key, int option, Vector3 pos)
     {
-        StageGimmick gimmick = StageGimmicksSO.i.gimmicks.Where(g => g.key == objInfo.key).FirstOrDefault();
+        StageGimmick gimmick = StageGimmicksSO.i.gimmicks.Where(g => g.key == key).FirstOrDefault();
         if (gimmick.gimmickObj == null) { return; }
         GameObject obj = Instantiate(gimmick.gimmickObj, pos, Quaternion.identity);
         //TODO:いつか直す
         switch (gimmick.key)
         {
             case "b":
-                obj.GetComponent<BlockController>().OnInstantitate(objInfo.option);
+                obj.GetComponent<BlockController>().OnInstantitate(option);
                 break;
             case "i":
-                obj.GetComponent<ItemController>().OnInstantitate(objInfo.option);
+                obj.GetComponent<ItemController>().OnInstantitate(option);
                 break;
             default:
                 break;

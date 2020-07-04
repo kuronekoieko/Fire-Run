@@ -25,6 +25,8 @@ public class Variables : MonoBehaviour
 
 public struct ObjInfo
 {
-    public string key;
-    public int option;
+    public string key_under;
+    public int option_under;
+    public string key_upper;
+    public int option_upper;
 }

@@ -54,15 +54,22 @@ public class CSVManager : MonoBehaviour
 
         //stringをそれぞれの型にパースする
         ObjInfo objInfo = new ObjInfo();
-        objInfo.key = datas[0];
-        if (objInfo.key == "")
+        objInfo.key_under = datas[0];
+        if (objInfo.key_under == "")
         {
             return objInfo;
         }
 
-        if (int.TryParse(datas[1], out int option))
+        if (int.TryParse(datas[1], out int option_under))
         {
-            objInfo.option = option;
+            objInfo.option_under = option_under;
+        }
+
+        if (datas.Length < 3) return objInfo;
+        objInfo.key_upper = datas[2];
+        if (int.TryParse(datas[3], out int option_upper))
+        {
+            objInfo.option_upper = option_upper;
         }
 
         return objInfo;
