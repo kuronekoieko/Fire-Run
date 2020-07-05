@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using DG.Tweening;
 public class BulletController : MonoBehaviour
 {
     Rigidbody rb;
@@ -10,6 +10,7 @@ public class BulletController : MonoBehaviour
     Transform humanTfm;
     float timer;
     float shootIntervalSec = 2;
+    TrailRenderer trailRenderer;
     public void OnInstantiate(Transform humanTfm, float speed)
     {
         Speed = speed;
@@ -17,6 +18,8 @@ public class BulletController : MonoBehaviour
         transform.position = humanTfm.position + offset;
         gameObject.SetActive(false);
         rb = GetComponent<Rigidbody>();
+        trailRenderer = GetComponent<TrailRenderer>();
+        trailRenderer.enabled = false;
     }
 
     void FixedUpdate()
@@ -30,6 +33,7 @@ public class BulletController : MonoBehaviour
     {
         timer = 0;
         gameObject.SetActive(true);
+        DOVirtual.DelayedCall(0.1f, () => trailRenderer.enabled = true);
         transform.position = humanTfm.position + offset;
         var eulerAngles = transform.eulerAngles;
         eulerAngles.y = angle;
@@ -44,6 +48,7 @@ public class BulletController : MonoBehaviour
         timer = 0;
 
         gameObject.SetActive(false);
+        trailRenderer.enabled = false;
     }
 
 
@@ -52,6 +57,6 @@ public class BulletController : MonoBehaviour
         var block = other.gameObject.GetComponent<BlockController>();
         if (block == null) { return; }
         gameObject.SetActive(false);
-
+        trailRenderer.enabled = false;
     }
 }
