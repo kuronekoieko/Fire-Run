@@ -33,7 +33,7 @@ public class BulletController : MonoBehaviour
     {
         timer = 0;
         gameObject.SetActive(true);
-        DOVirtual.DelayedCall(0.1f, () => trailRenderer.enabled = true);
+        DOVirtual.DelayedCall(trailRenderer.time, () => trailRenderer.enabled = true);
         transform.position = humanTfm.position + offset;
         var eulerAngles = transform.eulerAngles;
         eulerAngles.y = angle;
