@@ -49,7 +49,7 @@ public class HumanController : MonoBehaviour
         else
         {
             col.isTrigger = true;
-            rb.constraints = RigidbodyConstraints.FreezeAll;
+            //rb.constraints = RigidbodyConstraints.FreezeAll;
         }
     }
 
