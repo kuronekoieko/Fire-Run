@@ -41,6 +41,10 @@ public class StageGenerator : MonoBehaviour
             case "i":
                 obj.GetComponent<ItemController>().OnInstantitate(option);
                 break;
+            case "h":
+                pos.y /= 1.5f;
+                obj.transform.position = pos;
+                break;
             default:
                 break;
         }

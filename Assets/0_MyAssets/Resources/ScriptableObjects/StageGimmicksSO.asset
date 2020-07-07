@@ -25,3 +25,7 @@ MonoBehaviour:
       type: 3}
     key: i
     memo: 
+  - gimmickObj: {fileID: 2419231782953128040, guid: 02edfdf87214e41c488039f17444521b,
+      type: 3}
+    key: h
+    memo: 
