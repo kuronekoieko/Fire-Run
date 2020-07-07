@@ -4,7 +4,7 @@ using UnityEngine;
 using TMPro;
 using UniRx;
 using System.Linq;
-
+using DG.Tweening;
 public enum BlockType
 {
     Normal,
@@ -20,17 +20,25 @@ public class BlockController : MonoBehaviour
     [SerializeField] ColorProperty[] colorProperty;
     [SerializeField] MeshRenderer meshRenderer;
     public int getHp => hp;
+    float moveDistance;
     void Start()
     {
         this.ObserveEveryValueChanged(hp => this.hp)
             .Subscribe(hp => SetView(hp))
             .AddTo(this.gameObject);
         ps.GetComponent<Renderer>().material.color = colorProperty[0].color;
+        if (blockType == BlockType.Needle)
+        {
+            Sequence sequence = DOTween.Sequence()
+            .Append(transform.DOLocalMoveZ(moveDistance, 1).SetRelative().SetEase(Ease.Linear))
+            .Append(transform.DOLocalMoveZ(-moveDistance, 1).SetRelative().SetEase(Ease.Linear));
+        }
     }
 
-    public void OnInstantitate(int hp)
+    public void OnInstantitate(int option, float offset)
     {
-        this.hp = hp;
+        this.hp = option;
+        moveDistance = offset;
     }
 
 

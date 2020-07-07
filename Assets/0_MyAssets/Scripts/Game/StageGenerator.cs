@@ -5,7 +5,7 @@ using System.Linq;
 
 public class StageGenerator : MonoBehaviour
 {
-
+    float offset = 2.1f;
     public void Generate()
     {
         ObjInfo[,] stageData = Variables.stageDatas[Variables.currentStageIndex];
@@ -13,7 +13,7 @@ public class StageGenerator : MonoBehaviour
         for (int iz = 0; iz < stageData.GetLength(0); iz++)
         {
             // Debug.Log(iz + " ====================");
-            float offset = 2.1f;
+
             for (int ix = 0; ix < stageData.GetLength(1); ix++)
             {
                 //Debug.Log(stageDatas[iz, ix].key);
@@ -36,7 +36,7 @@ public class StageGenerator : MonoBehaviour
         switch (gimmick.key)
         {
             case "b":
-                obj.GetComponent<BlockController>().OnInstantitate(option);
+                obj.GetComponent<BlockController>().OnInstantitate(option, offset);
                 break;
             case "i":
                 obj.GetComponent<ItemController>().OnInstantitate(option);
