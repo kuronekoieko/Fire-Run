@@ -42,13 +42,14 @@ public class HumanController : MonoBehaviour
 
     void Start()
     {
+        col.isTrigger = true;
         if (state == HumanState.Run)
         {
             EnableRun();
         }
         else
         {
-            col.isTrigger = true;
+
             //rb.constraints = RigidbodyConstraints.FreezeAll;
         }
     }
@@ -112,7 +113,7 @@ public class HumanController : MonoBehaviour
     public void EnableRun()
     {
         state = HumanState.Run;
-        col.isTrigger = false;
+        //col.isTrigger = false;
         rb.constraints = RigidbodyConstraints.FreezeRotation;
         animator.SetTrigger("Run");
     }
@@ -122,6 +123,9 @@ public class HumanController : MonoBehaviour
         //if (!isTop) { return; }
         var block = other.GetComponent<BlockController>();
         if (block == null) { return; }
+        Debug.Log("aaaaaaaaaaaaaaa");
+        gameObject.SetActive(false);
+        HumansManager.i.humanControllers.Remove(this);
         HumansManager.i.HideHuman();
         var ps = Instantiate(splatPS, Vector3.zero, Quaternion.identity);
         var pos = transform.position;
@@ -137,7 +141,7 @@ public class HumanController : MonoBehaviour
         var otherHuman = other.GetComponent<HumanController>();
         if (otherHuman == null) { return; }
         HumansManager.i.SetHumansList(otherHuman);
-        GameCanvasManager.i?.ShowAddText(CameraController.i.mainCam, transform.position);
+        /// GameCanvasManager.i?.ShowAddText(CameraController.i.mainCam, transform.position);
         addPS.Play();
         otherHuman.BulletManager.BulletProperty = bulletManager.BulletProperty;
     }

@@ -29,7 +29,7 @@ public class PullController : MonoBehaviour
     {
         //PutOn();
         //Pull();
-        PutSide();
+        // PutSide();
     }
     void LateUpdate()
     {

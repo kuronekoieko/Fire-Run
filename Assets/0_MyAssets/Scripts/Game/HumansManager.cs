@@ -6,8 +6,8 @@ using System;
 using UniRx;
 public class HumansManager : MonoBehaviour
 {
-    [SerializeField] HumanController humanPrefab;
-    List<HumanController> humanControllers;
+    [SerializeField] HumanController human;
+    [System.NonSerialized] public List<HumanController> humanControllers;
     public static HumansManager i;
     Vector3 tapPos;
     [NonSerialized] public float distance = 0.8f;
@@ -26,7 +26,7 @@ public class HumansManager : MonoBehaviour
     {
         i = this;
         humanControllers = new List<HumanController>();
-        humanControllers.Add(Instantiate(humanPrefab, Vector3.zero, Quaternion.identity));
+        humanControllers.Add(human);
         humanControllers[0].OnInstantiate();
         Application.targetFrameRate = 60;
         this.ObserveEveryValueChanged(humanCount => humanControllers.Count)
@@ -77,7 +77,11 @@ public class HumansManager : MonoBehaviour
         if (humanControllers.Count == 0) { return; }
         float limit = 30;
         xSpeed = Mathf.Clamp(xSpeed, -limit, limit);
-        humanControllers[0].DragHorizontal(xSpeed);
+        //humanControllers[0].DragHorizontal(xSpeed);
+        foreach (var item in humanControllers)
+        {
+            item.DragHorizontal(xSpeed);
+        }
     }
 
     void Jump()
@@ -94,15 +98,15 @@ public class HumansManager : MonoBehaviour
         human.transform.position = pos;
         human.EnableRun();
         human.gameObject.layer = LayerMask.NameToLayer("Follower");
-        lastHuman.SetFollower(human);
+        //lastHuman.SetFollower(human);
         humanControllers.Add(human);
     }
 
     public void HideHuman()
     {
         // humanControllers[0].isTop = false;
-        humanControllers[0].gameObject.SetActive(false);
-        humanControllers.RemoveAt(0);
+        // humanControllers[0].gameObject.SetActive(false);
+        //humanControllers.RemoveAt(0);
         if (humanControllers.Count == 0)
         {
             Variables.screenState = ScreenState.Failed;
