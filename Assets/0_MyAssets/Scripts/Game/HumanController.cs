@@ -13,11 +13,11 @@ public enum HumanState
 public class HumanController : MonoBehaviour
 {
     [NonSerialized] public Rigidbody rb;
-    [NonSerialized] public float speed = 10f;
     [SerializeField] ParticleSystem splatPS;
     public ParticleSystem addPS;
     [SerializeField] Animator animator;
-    Vector3 vel;
+    [SerializeField] Collider footCol;
+
     Collider col;
     PullController pullController;
     //[NonSerialized] public bool isTop;
@@ -62,12 +62,6 @@ public class HumanController : MonoBehaviour
             case HumanState.Idle:
                 break;
             case HumanState.Run:
-                // if (isTop)
-                // {
-                vel.z = speed;
-                vel.y = rb.velocity.y;
-                rb.velocity = vel;
-                // }
                 break;
             case HumanState.Jumping:
                 var groundTfm = GetGround();
@@ -80,6 +74,21 @@ public class HumanController : MonoBehaviour
             default:
                 break;
         }
+    }
+
+    void LateUpdate()
+    {
+        if (state == HumanState.Run)
+        {
+            if (transform.parent)
+            {
+                var pos = transform.localPosition;
+                pos.y = 0;
+                pos.z = 0;
+                transform.localPosition = pos;
+            }
+        }
+
     }
 
     void OnTriggerEnter(Collider other)
@@ -98,24 +107,16 @@ public class HumanController : MonoBehaviour
 
     public void DragHorizontal(float xSpeed)
     {
-        vel.x = xSpeed;
-    }
 
-    public void Jump()
-    {
-        if (state != HumanState.Run) { return; }
-        vel.y = 12;
-        rb.velocity = vel;
-        animator.SetTrigger("JumpStart");
-        state = HumanState.Jumping;
     }
 
     public void EnableRun()
     {
         state = HumanState.Run;
         //col.isTrigger = false;
-        rb.constraints = RigidbodyConstraints.FreezeRotation;
+        rb.isKinematic = true;
         animator.SetTrigger("Run");
+        footCol.enabled = false;
     }
 
     void CheckBlock(Collider other)
@@ -140,6 +141,7 @@ public class HumanController : MonoBehaviour
         if (state == HumanState.Idle) { return; }
         var otherHuman = other.GetComponent<HumanController>();
         if (otherHuman == null) { return; }
+        if (otherHuman.state != HumanState.Idle) { return; }
         HumansManager.i.SetHumansList(otherHuman);
         /// GameCanvasManager.i?.ShowAddText(CameraController.i.mainCam, transform.position);
         addPS.Play();

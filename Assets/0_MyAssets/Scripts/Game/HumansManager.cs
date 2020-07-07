@@ -12,6 +12,9 @@ public class HumansManager : MonoBehaviour
     Vector3 tapPos;
     [NonSerialized] public float distance = 0.8f;
     [SerializeField] Joystick joystick;
+    [SerializeField] Rigidbody rb;
+    float speed = 10f;
+    Vector3 vel;
     public Vector3 firstHumanPos
     {
         get
@@ -69,6 +72,8 @@ public class HumansManager : MonoBehaviour
 
     void FixedUpdate()
     {
+        vel.z = speed;
+        rb.velocity = vel;
     }
 
 
@@ -77,17 +82,7 @@ public class HumansManager : MonoBehaviour
         if (humanControllers.Count == 0) { return; }
         float limit = 30;
         xSpeed = Mathf.Clamp(xSpeed, -limit, limit);
-        //humanControllers[0].DragHorizontal(xSpeed);
-        foreach (var item in humanControllers)
-        {
-            item.DragHorizontal(xSpeed);
-        }
-    }
-
-    void Jump()
-    {
-        if (humanControllers.Count == 0) { return; }
-        humanControllers[0].Jump();
+        vel.x = xSpeed;
     }
 
     public void SetHumansList(HumanController human)
@@ -96,6 +91,7 @@ public class HumansManager : MonoBehaviour
         var pos = lastHuman.transform.position;
         pos.x -= distance;
         human.transform.position = pos;
+        human.transform.parent = transform;
         human.EnableRun();
         human.gameObject.layer = LayerMask.NameToLayer("Follower");
         //lastHuman.SetFollower(human);
