@@ -9,9 +9,9 @@ EditorBuildSettings:
     path: Assets/0_MyAssets/Scenes/UIScene.unity
     guid: 655efcd1f35d84a17811e309dc5ffc43
   - enabled: 1
-    path: Assets/0_MyAssets/Scenes/Scene_GrassRoadRace.unity
-    guid: e323a50016ef3484f9e0d4d42c6bbc2b
-  - enabled: 1
     path: Assets/0_MyAssets/Scenes/GameScene.unity
     guid: e80c4b3aac968468cb6fbc59a3533c36
+  - enabled: 1
+    path: Assets/0_MyAssets/Scenes/Scene_GrassRoadRace.unity
+    guid: e323a50016ef3484f9e0d4d42c6bbc2b
   m_configObjects: {}

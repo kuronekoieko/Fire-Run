@@ -253,8 +253,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.90500623, y: 0.98533654, z: 0.08952141}
-  m_Center: {x: -0.004684001, y: -0.007331729, z: -0.4552393}
+  m_Size: {x: 0.8156617, y: 0.98533654, z: 0.94971085}
+  m_Center: {x: -0.001590997, y: -0.007331729, z: -0.025144577}
 --- !u!114 &2188534217067138848
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -289,10 +289,6 @@ MonoBehaviour:
     minHp: 15
   - color: {r: 0.25098038, g: 0.31601536, b: 1, a: 1}
     minHp: 20
-  - color: {r: 0.25098038, g: 0.5947926, b: 1, a: 1}
-    minHp: 25
-  - color: {r: 0.25098038, g: 0.905844, b: 1, a: 1}
-    minHp: 30
   meshRenderer: {fileID: 2708572743123894660}
 --- !u!54 &8733499735918362852
 Rigidbody:

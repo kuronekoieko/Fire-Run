@@ -13,7 +13,7 @@ public enum HumanState
 public class HumanController : MonoBehaviour
 {
     [NonSerialized] public Rigidbody rb;
-    [NonSerialized] public float speed = 10f;
+    [NonSerialized] public float speed = 10f * 1.5f;
     [SerializeField] ParticleSystem splatPS;
     public ParticleSystem addPS;
     [SerializeField] Animator animator;

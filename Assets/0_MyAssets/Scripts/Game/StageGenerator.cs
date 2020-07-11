@@ -6,6 +6,7 @@ using System.Linq;
 public class StageGenerator : MonoBehaviour
 {
     float offset = 2.1f;
+
     public void Generate()
     {
         ObjInfo[,] stageData = Variables.stageDatas[Variables.currentStageIndex];
@@ -40,6 +41,9 @@ public class StageGenerator : MonoBehaviour
                 break;
             case "i":
                 obj.GetComponent<ItemController>().OnInstantitate(option);
+                break;
+            case "bb":
+                obj.GetComponent<BlockController>().OnInstantitate(option, offset);
                 break;
             default:
                 break;
