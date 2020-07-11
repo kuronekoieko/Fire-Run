@@ -289,6 +289,8 @@ MonoBehaviour:
     minHp: 15
   - color: {r: 0.25098038, g: 0.31601536, b: 1, a: 1}
     minHp: 20
+  - color: {r: 0, g: 0.06711595, b: 0.7830189, a: 1}
+    minHp: 50
   meshRenderer: {fileID: 2708572743123894660}
 --- !u!54 &8733499735918362852
 Rigidbody:
