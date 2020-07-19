@@ -118,6 +118,7 @@ MonoBehaviour:
   splatPS: {fileID: 2180227712712657786}
   addPS: {fileID: 2071197298531755427}
   animator: {fileID: 6256293625470046767}
+  rig: {fileID: 3858123674927349809}
 --- !u!54 &1347312927588738292
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1147,12 +1148,7 @@ PrefabInstance:
     - target: {fileID: 8592876449711865404, guid: 6b5d591dbb72ac04a80d42bbb710cb7a,
         type: 3}
       propertyPath: m_WarningMessage
-      value: "\nBinding warning: Some generic clip(s) animate transforms that are
-        already bound by a Humanoid avatar. These transforms can only be changed
-        by Humanoid clips.\n\tTransform 'hand_l'\n\tTransform 'lowerarm_l'\n\tTransform
-        'lowerarm_r'\n\tTransform 'hand_r'\n\tTransform 'upperarm_l'\n\tTransform
-        'upperarm_r'\n\tTransform 'hand_l'\n\tTransform 'lowerarm_l'\n\tTransform
-        'lowerarm_r'\n\tTransform 'hand_r'\n\tand more ..."
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6b5d591dbb72ac04a80d42bbb710cb7a, type: 3}

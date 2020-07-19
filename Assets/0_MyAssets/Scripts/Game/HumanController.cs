@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using System;
-
+using UnityEngine.Animations.Rigging;
 public enum HumanState
 {
     Idle,
@@ -17,6 +17,7 @@ public class HumanController : MonoBehaviour
     [SerializeField] ParticleSystem splatPS;
     public ParticleSystem addPS;
     [SerializeField] Animator animator;
+    [SerializeField] Rig rig;
     Vector3 vel;
     Collider col;
     PullController pullController;
@@ -37,6 +38,7 @@ public class HumanController : MonoBehaviour
     public void OnInstantiate()
     {
         state = HumanState.Idle;
+        rig.weight = 0;
         // isTop = true;
     }
 
@@ -59,8 +61,10 @@ public class HumanController : MonoBehaviour
         switch (state)
         {
             case HumanState.Idle:
+                rig.weight = 0;
                 break;
             case HumanState.Run:
+                rig.weight = 1;
                 // if (isTop)
                 // {
                 vel.z = speed;
